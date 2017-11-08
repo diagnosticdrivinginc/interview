@@ -27,6 +27,14 @@ var config = {
           // CSS files -- this method injects css via JS
           // Not great for caching
           {
+            test: /\.jsx?$/,
+            exclude: /(node_modules|bower_components)/,
+            loader: 'babel-loader',
+            query: {
+              presets: ['react', 'es2015']
+            }
+          },
+          {
             test: /\.css$/,
             loaders: ['style', 'css'],
             include: [path.join(srcPath, 'assets')]
